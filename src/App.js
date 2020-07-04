@@ -8,8 +8,9 @@ import Rank from './Components/Rank/Rank'
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
 import Clarifai from 'clarifai';
 
-const app = new Clarifai.App(
-  {apiKey:"688733658fb344be817803c1c710246a"});
+const app = new Clarifai.App({
+  apiKey: '4c22c7e0566541229f650887aa4bf1f9'
+ });
 
 const particleOptions = {
   particles: {
@@ -40,7 +41,7 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({imageUrl:this.state.input});
 
-    app.models.predict(Clarifai.COLOR_MODEL,
+    app.models.predict(Clarifai.FACE_DETECT_MODEL,
      this.state.input)
      .then(function(response) {
         // do something with response
