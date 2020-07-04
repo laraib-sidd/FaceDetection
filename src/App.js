@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   onInputChange = (event) => {
-    console.log(event)
+    console.log(event.target.value)
   }
   render(){
 
