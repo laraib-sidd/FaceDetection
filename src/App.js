@@ -5,10 +5,11 @@ import Navigation from './Components/Navigation/Navigation'
 import Logo from './Components/Logo/Logo'
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm'
 import Rank from './Components/Rank/Rank'
+import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
 import Clarifai from 'clarifai';
 
-const app = new Clarifai(
-  {api_key:"688733658fb344be817803c1c710246a"});
+const app = new Clarifai.App(
+  {apiKey:"688733658fb344be817803c1c710246a"});
 
 const particleOptions = {
   particles: {
@@ -36,16 +37,19 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
-
-    app.models.predict("a403429f2ddf4b49b307e318f00e528b", "https://samples.clarifai.com/face-det.jpg").then(
-    function(response) {
-      // do something with response
-    },
-    function(err) {
-      // there was an error
-    }
+    app.models.predict("a403429f2ddf4b49b307e318f00e528b",
+     "https://samples.clarifai.com/face-det.jpg")
+     .then(function(response) {
+        // do something with response
+        console.log(response);
+      },
+      function(err) {
+        // there was an error
+      }
     );
-  }
+
+    }
+
   render(){
 
     return(
@@ -56,7 +60,10 @@ class App extends Component {
           <Navigation />
           <Logo />
           <Rank />
-          <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+          <ImageLinkForm
+          onInputChange={this.onInputChange}
+          onButtonSubmit={this.onButtonSubmit}/>
+          <FaceRecognition />
       </div>
     );
   }
