@@ -11,7 +11,7 @@ const FaceRecognition = ({imageUrl, box}) =>{
                 height='auto'
                 id='inputimage'
                 />
-                <div className="bounding-box"
+                <div className="bounding_box"
                 style={{top: box.topRow, right: box.rightcol, bottom: box.bottomRow, left: box.leftcol}}
                 />
 
