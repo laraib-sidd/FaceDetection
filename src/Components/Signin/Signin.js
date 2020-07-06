@@ -18,9 +18,9 @@ class Signin extends React.Component{
     }
 
     onSumbitChange = () =>{
-        fetch('http://localhost:3005/signin',{
+        fetch('http://localhost:3000/signin',{
             method:'post',
-            headers:{'content-type':'application/json'},
+            headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
                 email : this.state.signInEmail,
                 passsword: this.state.signInPassword

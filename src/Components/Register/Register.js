@@ -21,9 +21,9 @@ class Register extends Component{
     }
 
     onSumbitChange = () =>{
-        fetch('http://localhost:3016/register',{
+        fetch('http://localhost:3000/register',{
             method:'post',
-            headers:{'content-type':'application/json'},
+            headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
                 email : this.state.RegisterEmail,
                 passsword: this.state.RegisterPassword,
