@@ -17,8 +17,8 @@ class Signin extends React.Component {
     this.setState({ signInPassword: event.target.value });
   };
 
-  onSumbitChange = () => {
-    fetch("http://localhost:3018/signin", {
+  onSumbitSignin = () => {
+    fetch("http://localhost:3000/signin", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -70,7 +70,7 @@ class Signin extends React.Component {
             </fieldset>
             <div className="">
               <input
-                onClick={this.onSumbitChange}
+                onClick={this.onSumbitSignin}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"

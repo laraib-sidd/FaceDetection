@@ -21,7 +21,7 @@ class Register extends Component {
     }
 
     onSumbitChange = () => {
-        fetch('http://localhost:3018/register', {
+        fetch('http://localhost:3000/register', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -32,7 +32,6 @@ class Register extends Component {
         })
             .then(res => res.json())
             .then(user => {
-                console.log(user);
                 if (user.id) {
                     this.props.loadUser(user);
                     this.props.onRouteChange('home');
