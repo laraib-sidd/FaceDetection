@@ -85,7 +85,7 @@ class App extends Component {
 		this.setState({
 			imageUrl: this.state.input,
 		});
-		fetch("http://loacalhost:3001/imageurl", {
+		fetch(" https://warm-cove-10540.herokuapp.com/imageurl", {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",
@@ -97,7 +97,7 @@ class App extends Component {
 			.then(response => response.json())
 			.then((response) => {
 				if (response) {
-					fetch("http://loacalhost:3001/image", {
+					fetch(" https://warm-cove-10540.herokuapp.com/image", {
 						method: "put",
 						headers: {
 							"Content-Type": "application/json",
