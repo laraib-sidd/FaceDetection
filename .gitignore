@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Prettier
-.prettierrc
+/home/laraib/Gits/FaceDetection/.prettierrc
