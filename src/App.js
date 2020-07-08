@@ -55,12 +55,6 @@ class App extends Component {
 		});
 	};
 
-	onInputChange = (event) => {
-		this.setState({
-			input: event.target.value,
-		});
-	};
-
 	calulateFaceLocation = (resp) => {
 		const clarifaiFace =
 			resp.outputs[0].data.regions[0].region_info.bounding_box;
@@ -70,8 +64,8 @@ class App extends Component {
 		return {
 			leftcol: clarifaiFace.left_col * width,
 			topRow: clarifaiFace.top_row * height,
-			rightcol: width - clarifaiFace.right_col * width,
-			bottowRow: height - clarifaiFace.bottow_row * height,
+			rightcol: width - (clarifaiFace.right_col * width),
+			bottowRow: height - (clarifaiFace.bottow_row * height),
 		};
 	};
 
@@ -80,12 +74,18 @@ class App extends Component {
 			box: box,
 		});
 	};
+	
+	onInputChange = (event) => {
+		this.setState({
+			input: event.target.value,
+		});
+	};
 
 	onButtonSubmit = () => {
 		this.setState({
 			imageUrl: this.state.input,
 		});
-		fetch("http://loacalhost:3018/imageurl", {
+		fetch("http://loacalhost:3000/imageurl", {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",
@@ -97,7 +97,7 @@ class App extends Component {
 			.then(response => response.json())
 			.then((response) => {
 				if (response) {
-					fetch("http://loacalhost:3018/image", {
+					fetch("http://loacalhost:3000/image", {
 						method: "put",
 						headers: {
 							"Content-Type": "application/json",
