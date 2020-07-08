@@ -21,7 +21,7 @@ class Register extends Component {
     }
 
     onSumbitChange = () => {
-        fetch('localhost:3003/register', {
+        fetch('https://warm-cove-10540.herokuapp.com/register', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
